@@ -1,11 +1,10 @@
-const express = require('express');
+import express from 'express';
+import petsRouter from './routes/pets/pets';
+
+// Create the API router for /api
 const apiRouter = express.Router();
 
-// Import and mount petsRouter
-const petsRouter = require('./routes/pets/pets');
-
-
+// Mount the petsRouter on /pets
 apiRouter.use('/pets', petsRouter);
 
-
-module.exports = apiRouter;
+export default apiRouter;
