@@ -5,16 +5,19 @@ import catsRouter from './cats/catsRouter';
 // Create a new router to handle the pets routes
 const petsRouter = Router();
 
-// Typing for the species parameter
-type Species = 'dogs' | 'cats';
+// Enum for the species parameter
+enum Species {
+  Dogs = 'dogs',
+  Cats = 'cats'
+}
 
-// Accepted species
-const acceptedSpecies: Species[] = ['dogs', 'cats'];
-
-const isValidSpecies = (species: string): species is Species => acceptedSpecies.includes(species as Species);
+// Type guard function to validate species
+const isValidSpecies = (paramToCheck: any): paramToCheck is Species => {
+  return Object.values(Species).includes(paramToCheck);
+};
 
 // Middleware to validate species
-petsRouter.use((req: Request, res: Response, next: NextFunction) => {
+petsRouter.use('/:petSpecies', (req: Request, res: Response, next: NextFunction) => {
   const { petSpecies } = req.params;
   console.log(petSpecies)
   if (isValidSpecies(petSpecies)) {
@@ -26,14 +29,14 @@ petsRouter.use((req: Request, res: Response, next: NextFunction) => {
 
 // Middleware to route to the correct router
 petsRouter.use('/:petSpecies', (req: Request, res: Response, next: NextFunction) => {
-    const { petSpecies } = req.params;
-    if (petSpecies === 'dogs') {
-      dogsRouter(req, res, next);
-    } else if (petSpecies === 'cats') {
-      catsRouter(req, res, next);
-    } else {
-      res.status(404).send({ error: 'Species not found' });
-    }
-  });
+  const { petSpecies } = req.params;
+  if (petSpecies === Species.Dogs) {
+    dogsRouter(req, res, next);
+  } else if (petSpecies === Species.Cats) {
+    catsRouter(req, res, next);
+  } else {
+    next();
+  }
+});
 
 export default petsRouter;
