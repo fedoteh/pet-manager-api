@@ -1,15 +1,10 @@
-import { Router, Request, Response, NextFunction }  from 'express';
-import dogsRouter from './dogs/dogsRouter';
+import { NextFunction, Request, Response, Router } from 'express';
+import { Species } from '../../util/types/types';
 import catsRouter from './cats/catsRouter';
+import dogsRouter from './dogs/dogsRouter';
 
 // Create a new router to handle the pets routes
 const petsRouter = Router();
-
-// Enum for the species parameter
-enum Species {
-  Dogs = 'dogs',
-  Cats = 'cats'
-}
 
 // Type guard function to validate species
 const isValidSpecies = (paramToCheck: any): paramToCheck is Species => {
@@ -19,7 +14,6 @@ const isValidSpecies = (paramToCheck: any): paramToCheck is Species => {
 // Middleware to validate species
 petsRouter.use('/:petSpecies', (req: Request, res: Response, next: NextFunction) => {
   const { petSpecies } = req.params;
-  console.log(petSpecies)
   if (isValidSpecies(petSpecies)) {
     next();
   } else {
