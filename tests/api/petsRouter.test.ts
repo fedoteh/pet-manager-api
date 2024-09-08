@@ -2,8 +2,8 @@
 
 import request from 'supertest';
 import express from 'express';
-import petsRouter from '../src/routes/pets/pets';
-import { Species } from '../src/util/types/types';
+import petsRouter from '../../src/routes/pets/pets';
+import { Species } from '../../src/util/types/types';
 
 const app = express();
 app.use('/pets', petsRouter);
