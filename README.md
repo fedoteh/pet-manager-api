@@ -11,7 +11,7 @@ You can...
 2. Install dependencies: `npm install`
 3. Test the app: `npm test`
 4. Build the app: `npm build`
-4. Start the server of off the transpiled JavaScript files: `npm start`
+4. Start the server from the transpiled JavaScript files: `npm start`
 
 Or...
 
