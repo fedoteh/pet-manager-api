@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  backend:
+    image: pet-manager-backend:latest
+    ports:
+      - 3000:3000
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME={{ secrets.DB_NAME }}
+      - DB_USER={{ secrets.DB_USER }}
+      - DB_PASSWORD={{ secrets.DB_PASSWORD }}
+    depends_on:
+      - db
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB={{ secrets.DB_NAME }}
+      - POSTGRES_USER={{ secrets.DB_USER }}
+      - POSTGRES_PASSWORD={{ secrets.DB_PASSWORD }}
