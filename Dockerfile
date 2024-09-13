@@ -38,5 +38,7 @@ RUN npm install --only=production
 # Expose the port the app runs on
 EXPOSE 3000
 
+LABEL app="pet-manager-backend"
+
 # Command to run the application
 CMD ["node", "dist/app.js"]
