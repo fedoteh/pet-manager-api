@@ -1,7 +1,8 @@
 services:
   backend:
-    build: .
-    #image: pet-manager-backend:latest
+    image: fedoteh/pet-manager-api:latest
+    # if the image can't be reached, builds the image from the Dockerfile in the current directory   
+    build: . 
     ports:
       - 3000:3000
     env_file:
@@ -13,7 +14,8 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
   db:
     image: postgres
     restart: always
@@ -27,3 +29,8 @@ services:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
