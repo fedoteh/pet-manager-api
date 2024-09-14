@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import dogs from "../../../db_mock/dogs";
 import { findPetById } from "../../../util/findPet";
-import { Pet } from "../../../util/types/types";
+import { Pet, Dog } from "../../../util/types/types";
 
 // Create a new router to handle the dogs routes
 const dogsRouter = express.Router();
@@ -15,7 +15,7 @@ dogsRouter.get('/', (req: Request, res: Response, next: NextFunction) => {
 // Get a specific dog
 dogsRouter.get('/:id', (req: Request, res: Response, next: NextFunction) => {
     const id = Number(req.params.id);
-    const dogsList: Pet[] = dogs;
+    const dogsList: Dog[] = dogs;
     const dog = findPetById(id, dogsList);
     if (dog) {
         res.status(200).send(dog);
