@@ -2,7 +2,7 @@
 
 import request from 'supertest';
 import express from 'express';
-import petsRouter from '../../src/routes/pets/pets';
+import petsRouter from '../../src/routes//pets/petsRouter';
 import { Species } from '../../src/util/types/types';
 
 const app = express();
