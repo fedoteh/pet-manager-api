@@ -17,7 +17,7 @@ Or...
 
 ## (Recommended) Run a dockerized version of this project
 
-1. //Pending instructions
+1. //Pending instructions for docker compose, docker build, etc.
 
 ## Usage
 
