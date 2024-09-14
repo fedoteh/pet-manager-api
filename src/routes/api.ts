@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import petsRouter from './pets/pets';
+import petsRouter from './pets/petsRouter';
 import checkdbRouter from './dbtest/checkdbRouter';
 
 // Create the API router for /api
