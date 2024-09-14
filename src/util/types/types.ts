@@ -9,7 +9,7 @@ export enum Species {
 /**
  * Interface for the pet object
  */
-export type Pet = {
+export interface Pet {
       id: number;
       name: string;
       lastname: string;
