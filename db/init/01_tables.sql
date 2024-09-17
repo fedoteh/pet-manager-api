@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS dogs (
   breed VARCHAR(255),
   color VARCHAR(255)[] NOT NULL,
   weight FLOAT NOT NULL,
-  profilePicture VARCHAR(255) NOT NULL,
+  profilePicture VARCHAR(255),
   activities VARCHAR(255)[],
   favoriteSnack VARCHAR(255)
 );
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS cats (
   breed VARCHAR(255),
   color VARCHAR(255)[] NOT NULL,
   weight FLOAT NOT NULL,
-  profilePicture VARCHAR(255) NOT NULL,
+  profilePicture VARCHAR(255),
   favoriteToy VARCHAR(255),
   favoritePlace VARCHAR(255)
 );
