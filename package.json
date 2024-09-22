@@ -1,5 +1,5 @@
 {
-  "name": "pet-manager-backend",
+  "name": "pet-manager-api",
   "version": "1.0.0",
   "main": "dist/app.js",
   "engines": {
