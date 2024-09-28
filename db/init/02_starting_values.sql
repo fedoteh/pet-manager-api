@@ -8,7 +8,7 @@ INSERT INTO pets (id, name, lastname, species_id, sex, breed, color, weight)
 VALUES 
 (1, 'Leia', 'Organa', 1, 'female', 'Golden Retriever', ARRAY['Golden'], 42),
 (2, 'Totoño', 'Leopoldo', 1, 'male', NULL, ARRAY['Light Yellow'], 10),
-(3, 'Guauguaucito', 'Feroz', 1, 'female', 'Jack Russel', ARRAY['White', 'Brown'], 15)
+(3, 'Guauguaucito', 'Feroz', 1, 'male', 'Jack Russel', ARRAY['White', 'Brown'], 15)
 ON CONFLICT (id) DO NOTHING;
 
 -- Insert initial data for cats
