@@ -1,18 +1,18 @@
+import bodyParser from 'body-parser';
+import cors from 'cors';
 import express from 'express';
-import apiRouter from './routes/api';
+import apiRouterV1 from './routes/v1/apiRouter';
 
+// Setup express
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// const cors = require('cors');
-// app.use(cors());
+// Setup middleware libraries
+app.use(cors());
+app.use(bodyParser.json());
 
-// Add middware for parsing request bodies here:
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-
-
-app.use('/api', apiRouter);
+// Setup routes
+app.use('api/v1', apiRouterV1);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
