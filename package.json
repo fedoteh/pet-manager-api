@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "jest",
-    "dev": "nodemon src/app.ts",
+    "dev": "nodemon -L src/app.ts",
     "build": "tsc -p .",
     "start": "node -r module-alias/register dist/app.js"
   },
