@@ -36,8 +36,7 @@ jobs:
           push: true
           tags: ${{ github.repository }}:dev
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            TARGET=development
+          target: development
 
       - name: Build and push the production-ready Docker image
         uses: docker/build-push-action@v6.7.0
@@ -47,8 +46,8 @@ jobs:
           push: true
           tags: ${{ github.repository }}:latest
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            TARGET=production
+          target: production
+
 
       - name: Log out from Docker Hub
         run: docker logout
