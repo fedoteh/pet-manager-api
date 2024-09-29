@@ -1,7 +1,44 @@
 services:
   backend:
+    image: fedoteh/pet-manager-api:latest
+    # if the image can't be reached, builds the image
+    # from the Dockerfile in the current directory.
+    # Use `docker compose up --build` to force a local build 
     build:
       context: .
+      dockerfile: Dockerfile
       target: production
-    volumes: null
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME} 
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      db:
+        condition: service_healthy
     command: npm start
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
