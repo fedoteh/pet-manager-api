@@ -5,7 +5,7 @@ const dogs: Pet[] = [
         id: 1,
         name: "Leia",
         lastname: "Organa",
-        sex: "female",
+        sex: "f",
         breed: "Golden Retriever",
         color: ["Golden"],
         weight: 42
@@ -14,7 +14,7 @@ const dogs: Pet[] = [
         id: 2,
         name: "Totoño",
         lastname: "Leopoldo",
-        sex: "male",
+        sex: "m",
         breed: null,
         color: ["Light Yellow"],
         weight: 10
@@ -23,7 +23,7 @@ const dogs: Pet[] = [
         id: 3,
         name: "Guauguaucito",
         lastname: "Feroz",
-        sex: "female",
+        sex: "f",
         breed: "Jack Russel",
         color: ["White", "Brown"],
         weight: 15

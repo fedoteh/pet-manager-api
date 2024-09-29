@@ -14,11 +14,11 @@ interface Pet {
   id: number;
   name: string;
   lastname: string;
-  sex: "male" | "female";
+  sex: "m" | "f";
   breed: string | null;
   color: string[];
   weight: number;
-  profilePicture?: string;
+  profile_picture?: string;
 }
 
 /**
@@ -33,7 +33,7 @@ interface Pet {
  */
 interface Dog extends Pet {
   activities?: string[];
-  favoriteSnack?: string;
+  favorite_snack?: string;
 }
 
 /**
@@ -47,8 +47,8 @@ interface Dog extends Pet {
  * @property {string} [favoritePlace] - Optional favorite place of the cat.
  */
 interface Cat extends Pet {
-  favoriteToy?: string;
-  favoritePlace?: string;
+  favorite_toy?: string;
+  favorite_place?: string;
 }
   
 export { Species, Pet, Dog, Cat };

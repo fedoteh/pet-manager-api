@@ -2,16 +2,14 @@ import cats from "@db_mock/cats";
 import { findPetById } from "@util/findPet";
 import { Cat } from "@util/types/types";
 import express, { NextFunction, Request, Response } from "express";
+import { findCats } from "src/controllers/pets.controller";
 
 
 // Create a new router to handle the cats routes
 const catsRouter = express.Router();
 
 // Get all cats
-catsRouter.get('/', (req: Request, res: Response, next: NextFunction) => {
-    const catsList = cats; // Get the list of cats from the mock database
-    res.status(200).send(catsList);
-});
+catsRouter.get('/', findCats);
 
 // Get a specific cat
 catsRouter.get('/:id', (req: Request, res: Response, next: NextFunction) => {
