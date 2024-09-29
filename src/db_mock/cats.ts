@@ -8,8 +8,7 @@ const cats: Pet[] = [
         sex: "male",
         breed: "American Shorthair",
         color: ["White", "Orange"],
-        weight: 8.2,
-        profilePicture: './img/sherlock.jpg'
+        weight: 8.2
     },
     {
         id: 2,
@@ -18,8 +17,7 @@ const cats: Pet[] = [
         sex: "female",
         breed: "Bombay",
         color: ["Black"],
-        weight: 4.7,
-        profilePicture: './img/irene.jpg'
+        weight: 4.7
     },
     {
         id: 3,

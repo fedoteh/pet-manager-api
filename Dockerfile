@@ -51,5 +51,6 @@ EXPOSE 3000
 
 LABEL app="pet-manager"
 
-# Command to run the application
-CMD ["node", "dist/app.js"]
+# Command to run the application and register module aliases 
+# for absolute imports transpiled from TS to JS
+CMD ["node", "-r", "module-alias/register", "dist/app.js"]

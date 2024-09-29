@@ -1,7 +1,8 @@
+import dogs from "@db_mock/dogs";
+import { findPetById } from "@util/findPet";
+import { Dog } from "@util/types/types";
 import express, { NextFunction, Request, Response } from "express";
-import dogs from "../../../db_mock/dogs";
-import { findPetById } from "../../../util/findPet";
-import { Pet, Dog } from "../../../util/types/types";
+
 
 // Create a new router to handle the dogs routes
 const dogsRouter = express.Router();

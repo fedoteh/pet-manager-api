@@ -18,7 +18,7 @@ interface Pet {
   breed: string | null;
   color: string[];
   weight: number;
-  profilePicture: string;
+  profilePicture?: string;
 }
 
 /**

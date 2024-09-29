@@ -1,8 +1,8 @@
+import cats from "@db_mock/cats";
+import { findPetById } from "@util/findPet";
+import { Cat } from "@util/types/types";
 import express, { NextFunction, Request, Response } from "express";
-import cats from "../../../db_mock/cats";
-import { findPetById } from "../../../util/findPet";
-import { Cat } from "../../../util/types/types";
-import pool  from "../../../util/db/pool";
+
 
 // Create a new router to handle the cats routes
 const catsRouter = express.Router();

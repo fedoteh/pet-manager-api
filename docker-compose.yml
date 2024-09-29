@@ -1,7 +1,9 @@
 services:
   backend:
     image: fedoteh/pet-manager-api:latest
-    # if the image can't be reached, builds the image from the Dockerfile in the current directory   
+    # if the image can't be reached, builds the image
+    # from the Dockerfile in the current directory.
+    # Use `docker compose up --build` to force a local build 
     build: . 
     ports:
       - 3000:3000
@@ -23,6 +25,7 @@ services:
       - 5432:5432
     volumes:
       - ./data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
     env_file:
       - .env
     environment:

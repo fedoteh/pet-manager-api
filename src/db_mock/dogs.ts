@@ -8,8 +8,7 @@ const dogs: Pet[] = [
         sex: "female",
         breed: "Golden Retriever",
         color: ["Golden"],
-        weight: 42,
-        profilePicture: './img/leia.avif'
+        weight: 42
     },
     {
         id: 2,
@@ -18,8 +17,7 @@ const dogs: Pet[] = [
         sex: "male",
         breed: null,
         color: ["Light Yellow"],
-        weight: 10,
-        profilePicture: "./img/toti.avif"
+        weight: 10
     },
     {
         id: 3,
@@ -28,8 +26,7 @@ const dogs: Pet[] = [
         sex: "female",
         breed: "Jack Russel",
         color: ["White", "Brown"],
-        weight: 15,
-        profilePicture: "https://images.dog.ceo/breeds/terrier-jackrussell/n02093754_100.jpg"
+        weight: 15
     }
 ];
 
