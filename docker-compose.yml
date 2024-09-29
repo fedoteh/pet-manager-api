@@ -13,9 +13,8 @@ services:
     volumes:
       - ./src:/app/src
       - ./nodemon.json:/app/nodemon.json
-      # - ./package.json:/app/package.json
-      # - ./package-lock.json:/app/package-lock.json
-      # - /app/node_modules
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
     env_file:
       - .env
     environment:
@@ -28,6 +27,7 @@ services:
       db:
         condition: service_healthy
     command: npm run dev
+
   db:
     image: postgres
     restart: always
@@ -46,4 +46,4 @@ services:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 8
