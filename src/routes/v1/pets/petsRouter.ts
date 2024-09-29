@@ -1,5 +1,5 @@
-import { Species } from '@util/types/types';
 import { NextFunction, Request, Response, Router } from 'express';
+import { Species } from '@util/types/types';
 import catsRouter from './cats/catsRouter';
 import dogsRouter from './dogs/dogsRouter';
 
