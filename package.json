@@ -7,6 +7,7 @@
   },
   "scripts": {
     "test": "jest",
+    "dev": "nodemon src/app.ts",
     "build": "tsc -p .",
     "start": "node -r module-alias/register dist/app.js"
   },
@@ -39,7 +40,7 @@
     "tsconfig-paths": "^4.2.0"
   },
   "_moduleAliases": {
-    "@util": "dist/util", 
+    "@util": "dist/util",
     "@routes/v1": "dist/routes/v1",
     "@db_mock": "dist/db_mock"
   }
