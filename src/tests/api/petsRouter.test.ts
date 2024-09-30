@@ -1,7 +1,7 @@
 // __tests__/petsRouter.test.ts
 
-import request from 'supertest';
 import express from 'express';
+import request from 'supertest';
 import petsRouter from '../../routes/v1/pets/petsRouter';
 import { Species } from '../../util/types/types';
 

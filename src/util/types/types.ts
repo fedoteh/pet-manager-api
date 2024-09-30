@@ -6,7 +6,7 @@ enum Species {
   Dogs = 'dogs',
   Cats = 'cats'
 }
-  
+
 /**
  * Interface for the pet object
  */
@@ -50,6 +50,6 @@ interface Cat extends Pet {
   favorite_toy?: string;
   favorite_place?: string;
 }
-  
-export { Species, Pet, Dog, Cat };
-  
+
+export { Cat, Dog, Pet, Species };
+

@@ -1,6 +1,6 @@
-import Species from './species.model';
-import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '@util/db/sequelize';
+import { DataTypes, Model, Optional } from 'sequelize';
+import Species from './species.model';
 
 // Define the attributes for the Pet model
 interface PetAttributes {

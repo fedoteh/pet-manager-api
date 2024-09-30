@@ -9,7 +9,7 @@ interface SpeciesAttributes {
 }
 
 // Define the creation attributes for the Species model
-interface SpeciesCreationAttributes extends Optional<SpeciesAttributes, 'id'> {}
+interface SpeciesCreationAttributes extends Optional<SpeciesAttributes, 'id'> { }
 
 // Define the Species class extending the Sequelize Model class
 class Species extends Model<SpeciesAttributes, SpeciesCreationAttributes> {

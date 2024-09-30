@@ -1,7 +1,7 @@
-import request from 'supertest';
 import express from 'express';
-import catsRouter from '../../../routes/v1/pets/cats/catsRouter';
+import request from 'supertest';
 import cats from '../../../db_mock/cats';
+import catsRouter from '../../../routes/v1/pets/cats/catsRouter';
 
 const app = express();
 app.use(express.json());
