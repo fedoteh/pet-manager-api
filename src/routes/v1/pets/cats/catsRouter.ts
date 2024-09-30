@@ -2,7 +2,7 @@ import cats from "@db_mock/cats";
 import { findPetById } from "@util/findPet";
 import { Cat } from "@util/types/types";
 import express, { NextFunction, Request, Response } from "express";
-import { findCats } from "src/controllers/pets.controller";
+import { findCats } from "@controllers/pets.controller";
 
 
 // Create a new router to handle the cats routes

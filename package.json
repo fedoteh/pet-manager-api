@@ -43,6 +43,7 @@
   "_moduleAliases": {
     "@util": "dist/util",
     "@routes/v1": "dist/routes/v1",
-    "@db_mock": "dist/db_mock"
+    "@db_mock": "dist/db_mock",
+    "@controllers": "dist/controllers"
   }
 }
