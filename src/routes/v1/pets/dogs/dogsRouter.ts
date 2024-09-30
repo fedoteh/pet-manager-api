@@ -1,3 +1,4 @@
+import { findDogs } from "@controllers/pets.controller";
 import dogs from "@db_mock/dogs";
 import { findPetById } from "@util/findPet";
 import { Dog } from "@util/types/types";
@@ -8,10 +9,7 @@ import express, { NextFunction, Request, Response } from "express";
 const dogsRouter = express.Router();
 
 // Get all dogs
-dogsRouter.get('/', (req: Request, res: Response, next: NextFunction) => {
-    const dogsList = dogs; // Get the list of dogs from the mock database
-    res.status(200).send(dogsList);
-});
+dogsRouter.get('/', findDogs);
 
 // Get a specific dog
 dogsRouter.get('/:id', (req: Request, res: Response, next: NextFunction) => {

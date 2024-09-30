@@ -22,6 +22,7 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "module-alias": "^2.2.3",
+    "pg": "^8.13.0",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
@@ -42,6 +43,7 @@
   "_moduleAliases": {
     "@util": "dist/util",
     "@routes/v1": "dist/routes/v1",
-    "@db_mock": "dist/db_mock"
+    "@db_mock": "dist/db_mock",
+    "@controllers": "dist/controllers"
   }
 }
