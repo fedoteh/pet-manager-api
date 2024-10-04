@@ -1,7 +1,11 @@
-# Ignore the data directory
 data
-
-# Ignore db directory used for postgres
 db
-
-
+node_modules
+.env
+.git
+.gitignore
+Makefile
+__tests__
+dist
+docker-compose.yml
+docker-compose.prod.yml
