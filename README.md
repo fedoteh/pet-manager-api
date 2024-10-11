@@ -5,21 +5,11 @@ This is the backend layer for an application I'm building for the DevOps class. 
 
 ### Prerequisites
 
-Requisites vary depending on what you want to do with the project.
-
-
-#### Recommended
-
-- `Git` (duh!)
-- `Node >= 18`
-- `npm`
-- `Docker Desktop` — must have docker compose v2 (just update Docker Desktop and it should be good)
-
-#### Optional
-
+- `Git` to clone this repo.
+- `Node >= 20`
+- `npm` to manage dependencies.
+- `Docker Desktop` — must have docker compose v2 (just update Docker Desktop and it should be good).
 - `Make` to easily manage docker compose commands — on Windows, can be installed with Chocolatey.
-
-
 
 There are two options:
 
@@ -29,8 +19,7 @@ You can...
 
 1. Clone the repository: `git clone https://github.com/fedoteh/pet-manager-backend.git`
 2. Install dependencies: `npm install`
-3. Test the app: `npm test`
-4. Build the app: `npm run build`
+3. Build the app: `npm run build`
 4. Start the server from the transpiled JavaScript files: `npm start`
 
 Or...
@@ -39,17 +28,31 @@ Or...
 
 Sit on the root directory and run:
 
-- `make up` if you want to start docker compose with development capabilities (nodemon)
+- `make up-dev` if you want to start docker compose with development capabilities (nodemon).
+- `make test` if you want to run the integration tests (these also run on the CI on pushes to the `main` branch).
 - `make up-prod` if you want to start the dockerized app from its production build without additional dev tools.
 
 ### Usage
 
-Once the server is running, you can access the API endpoints to perform various operations related to pet management. Here are some examples:
+Once the server is running, you can access the API endpoints on `localhost:3000/` to perform various operations related to pet management. A postgres DB will be initiated with some data for testing purposes.
 
-- GET `/pets/dogs` - Retrieve a list of all dogs
-- GET `/pets/dogs/:id` - Retrieve a specific dog by ID
-- GET `/pets/cats` - Retrieve a list of all cats
-- GET `/pets/cats/:id` - Retrieve a specific cat by ID
+Here are some examples:
+
+- GET `api/v1/pets/dogs` - Retrieve a list of all dogs
+- GET `api/v1/pets/dogs/:id` - Retrieve a specific dog by ID
+- POST `api/v1/pets/dogs` - Create a new dog
+- PUT `api/v1/pets/dogs/:id` - Update a dog attribute/s by ID (1, 2 and 3 are default dogs)
+- GET `api/v1/pets/cats` - Retrieve a list of all cats
+- GET `api/v1/pets/cats/:id` - Retrieve a specific cat by ID
+- POST `api/v1/pets/cats` - Create a new cat
+- PUT `api/v1/pets/cats/:id` - Update a cat attribute/s by ID (4, 5 and 6 are default cats)
+
+### TODO
+
+- Implement a monitoring tool (New Relic, Sentry)
+- Create a SaaS DB
+- Connect to the productive DB based on context — dev env should use the docker-compose-defined postgres
+- Write a report and export to PDF to present the project @ School.
 
 
 ### License
