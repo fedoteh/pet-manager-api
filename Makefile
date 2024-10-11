@@ -1,21 +1,28 @@
 .PHONY: up dev-config up-prod prod-config down
 
+COMPOSE_FILE_DEV=docker-compose.yml
+COMPOSE_FILE_PROD=docker-compose.prod.yml
+
 # Compose with volumes for the backend server
-up:
-	docker compose -f docker-compose.yml up -d
+up-dev:
+	docker compose -f $(COMPOSE_FILE_DEV) up -d
 
 dev-config:
-	docker compose -f docker-compose.yml config
+	docker compose -f $(COMPOSE_FILE_DEV) config
 
 # Compose with requirements only for prod
 # use to avoid having src files in the container
 up-prod:
-	docker compose -f docker-compose.prod.yml up -d
+	docker compose -f $(COMPOSE_FILE_PROD) up -d
 
 prod-config:
-	docker compose -f docker-compose.prod.yml config
+	docker compose -f $(COMPOSE_FILE_PROD) config
 
-
+# Prerequisites: up-dev; then run the integration tests, 
+# and finally tear down the stack
+test: up-dev
+	docker compose exec backend npm test
+	$(MAKE) down
 
 down:
 	docker compose down

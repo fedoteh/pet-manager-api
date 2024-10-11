@@ -6,7 +6,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "dev": "nodemon -L src/app.ts",
     "build": "tsc -p .",
     "start": "node -r module-alias/register dist/app.js"
