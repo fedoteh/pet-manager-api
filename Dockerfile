@@ -1,7 +1,7 @@
 #
 # Development stage 💻
 #
-FROM node:18-alpine AS development
+FROM node:20-alpine AS development
 
 # Set the working directory
 WORKDIR /app
@@ -19,7 +19,7 @@ COPY . .
 #
 # Build Stage 🔨
 #
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 
 # Set the working directory
 WORKDIR /app
@@ -34,7 +34,7 @@ RUN npm run build
 #
 # Production stage 🚀
 #
-FROM node:18-alpine AS production
+FROM node:20-alpine AS production
 
 # Set the working directory
 WORKDIR /app
