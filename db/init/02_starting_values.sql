@@ -18,3 +18,5 @@ VALUES
 (5, 'Irene', 'Adler', 2, 'f', 'American Shorthair', ARRAY['Black'], 4.7),
 (6, 'Mr. Mittens', 'Turbofreckles', 2, 'm', 'Maine Coon', ARRAY['Gray'], 7.1)
 ON CONFLICT (id) DO NOTHING;
+
+SELECT setval(pg_get_serial_sequence('pets', 'id'), MAX(id)) FROM pets;

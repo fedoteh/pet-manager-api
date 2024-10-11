@@ -29,12 +29,84 @@ class Pet extends Model<PetAttributes, PetCreationAttributes> {
     // Static method to fetch all dogs
     public static async findAllDogs(): Promise<Pet[]> {
         return await Pet.findAll({ where: { species_id: 1 } });
-    }
+    };
+
+    // Static method to fetch a dog by ID
+    public static async findDogById(id: number): Promise<Pet | null> {
+        return await Pet.findOne({ where: { species_id: 1, id } });
+    };
 
     // Static method to fetch all cats
     public static async findAllCats(): Promise<Pet[]> {
         return await Pet.findAll({ where: { species_id: 2 } });
+    };
+
+    // Static method to fetch a cat by ID
+    public static async findCatById(id: number): Promise<Pet | null> {
+        return await Pet.findOne({ where: { species_id: 2, id } });
+    };
+
+    // Static method to update a cat by ID
+    public static async updateCatById(id: number, data: PetAttributes): Promise<[number, Pet[]]> {
+        // Fields to exclude from the data by destructuring the req body
+        const { species_id, createdAt, updatedAt, ...allowedData } = data;
+    
+        const [affectedCount] = await Pet.update(allowedData, {
+            where: { species_id: 2, id },
+            fields: Object.keys(allowedData) as (keyof PetAttributes)[], 
+        });
+    
+        const updatedPets = await Pet.findAll({ where: { species_id: 2, id } });
+        return [affectedCount, updatedPets];
+    };   
+    
+    public static async updateDogById(id: number, data: PetAttributes): Promise<[number, Pet[]]> {
+        // Fields to exclude from the data by destructuring the req body
+        const { species_id, createdAt, updatedAt, ...allowedData } = data;
+    
+        const [affectedCount] = await Pet.update(allowedData, {
+            where: { species_id: 1, id },
+            fields: Object.keys(allowedData) as (keyof PetAttributes)[], 
+        });
+    
+        const updatedPets = await Pet.findAll({ where: { species_id: 1, id } });
+        return [affectedCount, updatedPets];
+    };
+
+    public static async createDog(dogDetails: PetAttributes) {
+        try {
+            const newDog = await Pet.create({
+                ...dogDetails,
+                species_id: 1,
+            });
+            return newDog;
+        } catch (error) {
+            throw new Error('Failed to create a new dog');
+        }
     }
+    
+
+    public static async createCat(catDetails: PetAttributes): Promise<Pet> {
+        try {
+            const newCat = await Pet.create({
+                ...catDetails,
+                species_id: 2,
+            });
+            return newCat;
+        } catch (error) {
+            throw new Error('Failed to create a new cat');
+        }
+    };
+
+    public static async deletePetById(id: number): Promise<boolean> {
+        const result = await Pet.destroy({
+            where: {
+                id: id,
+            },
+        });
+        return result > 0; // Returns true if a dog was deleted, false otherwise
+    };
+
 }
 
 // Initialize the Pet model
