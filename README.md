@@ -36,12 +36,15 @@ Sit on the root directory and run:
 
 Once the server is running, you can access the API endpoints on `localhost:3000/` to perform various operations related to pet management. A postgres DB will be initiated with some data for testing purposes.
 
-Here are some examples:
+Example operations for dogs:
 
 - GET `api/v1/pets/dogs` - Retrieve a list of all dogs
 - GET `api/v1/pets/dogs/:id` - Retrieve a specific dog by ID
 - POST `api/v1/pets/dogs` - Create a new dog
 - PUT `api/v1/pets/dogs/:id` - Update a dog attribute/s by ID (1, 2 and 3 are default dogs)
+
+Example operations for cats:
+
 - GET `api/v1/pets/cats` - Retrieve a list of all cats
 - GET `api/v1/pets/cats/:id` - Retrieve a specific cat by ID
 - POST `api/v1/pets/cats` - Create a new cat
@@ -49,10 +52,11 @@ Here are some examples:
 
 ### TODO
 
-- Implement a monitoring tool (New Relic, Sentry)
-- Create a SaaS DB
-- Connect to the productive DB based on context — dev env should use the docker-compose-defined postgres
+- Implement a monitoring tool (New Relic, Sentry).
+- Create a SaaS DB.
+- Connect to the productive DB based on context — dev env should use the docker-compose-defined postgres.
 - Write a report and export to PDF to present the project @ School.
+- Finish coding the test suite to cover all the operations on the two initial endpoints.
 
 
 ### License
