@@ -31,12 +31,12 @@ jobs:
 
     - name: Install dependencies
       run: npm install && npm install --save-dev typescript
-      
+
     - name: Set environment variables
       run: echo "DB_NAME=${{ secrets.DB_NAME }}" >> $GITHUB_ENV && echo "DB_USER=${{ secrets.DB_USER }}" >> $GITHUB_ENV && echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
       
     - name: Run Docker Compose
-      run: docker-compose up -d --build
+      run: docker compose up -d --build
 
     - name: Run tests
       run: npm test
