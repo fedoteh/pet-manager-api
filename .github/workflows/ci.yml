@@ -30,7 +30,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Run Docker Compose
-      run: docker compose -f docker-compose.yml up -d --build
+      run: docker compose --env-file .env.local -f docker-compose.yml up -d --build
 
     - name: Run tests
       run: docker compose exec backend npm test
