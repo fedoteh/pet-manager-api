@@ -17,9 +17,9 @@ services:
       - ./package-lock.json:/app/package-lock.json
     env_file:
       - .env.local
-    # environment:
-    #   - DB_HOST=db
-    #   - DB_PORT=5432
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
     #   - DB_NAME=${DB_NAME} 
     #   - DB_USER=${DB_USER}
     #   - DB_PASSWORD=${DB_PASSWORD}
