@@ -2,6 +2,7 @@ data
 db
 node_modules
 .env
+.env.local
 .git
 .gitignore
 Makefile

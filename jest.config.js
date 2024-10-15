@@ -13,5 +13,6 @@ module.exports = {
       tsconfig: 'tsconfig.json' 
     }]
   },
-  testPathIgnorePatterns: ['/node_modules/', '/dist/'], // Ignore dist directory
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  setupFilesAfterEnv: ['./jest.setup.js'],
 };

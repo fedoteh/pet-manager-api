@@ -16,13 +16,13 @@ services:
       - ./package.json:/app/package.json
       - ./package-lock.json:/app/package-lock.json
     env_file:
-      - .env
+      - .env.local
     environment:
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_NAME=${DB_NAME} 
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
+    #   - DB_NAME=${DB_NAME} 
+    #   - DB_USER=${DB_USER}
+    #   - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       db:
         condition: service_healthy
@@ -38,11 +38,11 @@ services:
       - ./data:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d
     env_file:
-      - .env
-    environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - .env.local
+    # environment:
+    #   - POSTGRES_DB=${DB_NAME}
+    #   - POSTGRES_USER=${DB_USER}
+    #   - POSTGRES_PASSWORD=${DB_PASSWORD}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 10s
