@@ -1,19 +1,22 @@
 import "@util/monitoring/instrument";
 import * as dotenv from 'dotenv';
+import express, { NextFunction, Request, Response } from 'express';
 import * as Sentry from "@sentry/node";
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import express, { NextFunction, Request, Response } from 'express';
 import apiRouterV1 from './routes/v1/apiRouter';
 // import 'module-alias/register';
 
 // Load environment variables
 const envFile = process.env.NODE_ENV !== 'production' ? '.env.local' : '.env';
+console.log(`Loading environment variables from: ${envFile}`);
 dotenv.config({ path: envFile });
 
 // Setup express
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+
 
 // Setup routes
 app.use('/api/v1', apiRouterV1);

@@ -1,7 +1,16 @@
+import "../../../src/util/monitoring/instrument"; // Ensure Sentry is initialized
+import * as Sentry from "@sentry/node";
 import { Transaction } from 'sequelize';
 import request from 'supertest';
 import app from '../../../src/app';
 import sequelize from '../../../src/util/db/sequelize';
+
+// Mock Sentry to avoid real data submission
+jest.mock('@sentry/node', () => ({
+    init: jest.fn(),
+    captureException: jest.fn(),
+    setupExpressErrorHandler: jest.fn(),  // Mock this function
+  }));
 
 const apiVersion = 'v1';
 const apiPath = `/api/${apiVersion}`;
