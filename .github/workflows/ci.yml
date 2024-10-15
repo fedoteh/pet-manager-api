@@ -36,4 +36,4 @@ jobs:
       run: docker compose --env-file .env.local -f docker-compose.yml up -d --build
 
     - name: Run tests
-      run: docker compose exec backend npm test
+      run: docker compose --env-file .env.local exec backend npm test
