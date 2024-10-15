@@ -36,4 +36,7 @@ jobs:
       run: docker compose --env-file .env.local -f docker-compose.yml up -d --build
 
     - name: Run tests
-      run: docker compose --env-file .env.local exec backend npm test
+      run: |
+        echo "Keys in .env.local:"
+        cut -d '=' -f 1 .env.local  # Extracts only the keys
+        docker compose --env-file .env.local exec backend npm test
