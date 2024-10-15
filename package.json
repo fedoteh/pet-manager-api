@@ -8,7 +8,8 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "dev": "nodemon -L src/app.ts",
-    "build": "tsc -p . && npm run sentry:sourcemaps",
+    "build": "tsc -p . ",
+    "build:sourcemaps": "tsc -p . && npm run sentry:sourcemaps",
     "start": "node -r module-alias/register dist/app.js",
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org federico-benavidez --project pet-manager-api ./dist && sentry-cli sourcemaps upload --org federico-benavidez --project pet-manager-api ./dist"
   },
