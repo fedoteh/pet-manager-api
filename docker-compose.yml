@@ -16,7 +16,7 @@ services:
       - ./package.json:/app/package.json
       - ./package-lock.json:/app/package-lock.json
     env_file:
-      - .env
+      - .env.local
     environment:
       - DB_HOST=db
       - DB_PORT=5432
@@ -38,7 +38,7 @@ services:
       - ./data:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d
     env_file:
-      - .env
+      - .env.local
     environment:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}

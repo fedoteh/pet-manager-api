@@ -8,8 +8,9 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "dev": "nodemon -L src/app.ts",
-    "build": "tsc -p .",
-    "start": "node -r module-alias/register dist/app.js"
+    "build": "tsc -p . && npm run sentry:sourcemaps",
+    "start": "node -r module-alias/register dist/app.js",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org federico-benavidez --project pet-manager-api ./dist && sentry-cli sourcemaps upload --org federico-benavidez --project pet-manager-api ./dist"
   },
   "keywords": [
     "pet",
@@ -19,7 +20,11 @@
   "license": "MIT",
   "description": "An application for managing pets",
   "dependencies": {
+    "@sentry/cli": "^2.37.0",
+    "@sentry/node": "^8.34.0",
+    "@sentry/profiling-node": "^8.34.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "module-alias": "^2.2.3",
     "pg": "^8.13.0",
