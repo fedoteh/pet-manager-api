@@ -16,12 +16,12 @@ dev-config:
 # Compose with requirements only for prod
 # use to avoid having src files in the container
 up-prod:
-	docker compose -f $(COMPOSE_FILE_PROD) up -d
+	DB_SSL=true docker compose -f $(COMPOSE_FILE_PROD) up -d
 
 # Use this one to build newer changes locally 
 # instead of pulling from the registry
 up-prod-build: 
-	docker compose -f $(COMPOSE_FILE_PROD) up -d --build
+	DB_SSL=true docker compose -f $(COMPOSE_FILE_PROD) up -d --build
 
 prod-config:
 	docker compose -f $(COMPOSE_FILE_PROD) config
