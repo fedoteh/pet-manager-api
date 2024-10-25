@@ -39,6 +39,7 @@ app.use(function onError(err: any, req: Request, res: Response, next: NextFuncti
 
 
 if (process.env.NODE_ENV !== 'test') {
+    console.log(`DB_SSL: ${process.env.DB_SSL}`)
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
     });

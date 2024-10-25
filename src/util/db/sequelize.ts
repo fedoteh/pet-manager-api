@@ -7,7 +7,7 @@ const baseOptions = {
   logging: false,
 };
 
-const localOptions = process.env.NODE_ENV === 'local' ? {
+const sslOptions = process.env.DB_SSL === 'true' ? {
   dialectOptions: {
     ssl: {
       require: true,
@@ -18,7 +18,7 @@ const localOptions = process.env.NODE_ENV === 'local' ? {
 
 const sequelizeOptions = {
   ...baseOptions,
-  ...localOptions,
+  ...sslOptions,
 };
 
 const sequelize = new Sequelize(
