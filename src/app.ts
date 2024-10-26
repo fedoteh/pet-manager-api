@@ -16,20 +16,19 @@ dotenv.config({ path: envFile });
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
+// Setup middlewares
+app.use(cors());
+app.use(bodyParser.json());
 
 // Setup routes
 app.use('/api/v1', apiRouterV1);
 app.get("/debug-sentry", function mainHandler(req, res) {
     throw new Error("My first Sentry error!");
 });
-// Setup middleware libraries
+
+// Setup error handling middlewares
 Sentry.setupExpressErrorHandler(app);
-app.use(cors());
-app.use(bodyParser.json());
 
-
-// Error handling middleware
 app.use(function onError(err: any, req: Request, res: Response, next: NextFunction) {
     // The error id is attached to `res.sentry` to be returned
     // and optionally displayed to the user for support.
