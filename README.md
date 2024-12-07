@@ -1,7 +1,7 @@
 ## CI/CD project for the Universidad de Palermo DevOps class
 
 
-This is the backend layer for an application I'm building for the DevOps class. It's a Node.js CRUD API using the Express.js framework, completely written in TypeScript and then transpiled to plain JavaScript. The objective is to build a CI/CD pipeline so that the app can be unit-tested, then dockerized, then its docker image pushed to a public docker registry ([https://hub.docker.com/r/fedoteh/pet-manager-api]([url](https://hub.docker.com/r/fedoteh/pet-manager-api))). Afterwards, the latest reference to the image is pulled by Render and automatically deployed thanks to a deploy hook that is configured on the GitHub Actions workflow.
+This is the backend layer for an application I'm building for the DevOps class. It's a Node.js CRUD API using the Express.js framework, completely written in TypeScript and then transpiled to plain JavaScript. The objective is to build a CI/CD pipeline so that the app can be unit-tested, then dockerized, then its docker image pushed to a public docker registry ([https://hub.docker.com/r/fedoteh/pet-manager-api](https://hub.docker.com/r/fedoteh/pet-manager-api)). Afterwards, the latest reference to the image is pulled by Render and automatically deployed thanks to a deploy hook that is configured on the GitHub Actions workflow.
 
 ### Prerequisites
 
