@@ -1,30 +1,17 @@
 ## CI/CD project for the Universidad de Palermo DevOps class
 
 
-This is the backend layer for an application I'm building for the DevOps class. It's a Node.js CRUD API using the Express.js framework, completely written in TypeScript and then transpiled to plain JavaScript. The objective is to build a CI/CD pipeline so that the app can be unit-tested, then dockerized, then its docker image pushed to a public docker registry [pending link here]. Afterwards, the image should be pulled from that docker registry and deployed into a PaaS solution like Render, DigitalOcean, Vercel, etc.
+This is the backend layer for an application I'm building for the DevOps class. It's a Node.js CRUD API using the Express.js framework, completely written in TypeScript and then transpiled to plain JavaScript. The objective is to build a CI/CD pipeline so that the app can be unit-tested, then dockerized, then its docker image pushed to a public docker registry ([https://hub.docker.com/r/fedoteh/pet-manager-api]([url](https://hub.docker.com/r/fedoteh/pet-manager-api))). Afterwards, the latest reference to the image is pulled by Render and automatically deployed thanks to a deploy hook that is configured on the GitHub Actions workflow.
 
 ### Prerequisites
 
-- `Git` to clone this repo.
-- `Node >= 20`
+- Git to clone this repo.
+- Node >= 20
 - `npm` to manage dependencies.
-- `Docker Desktop` — must have docker compose v2 (just update Docker Desktop and it should be good).
+- Docker Desktop — must have docker compose v2 (just update Docker Desktop and it should be good).
 - `Make` to easily manage docker compose commands — on Windows, can be installed with Chocolatey.
 
-There are two options:
-
-You can...
-
-### a. Run this project locally
-
-1. Clone the repository: `git clone https://github.com/fedoteh/pet-manager-backend.git`
-2. Install dependencies: `npm install`
-3. Build the app: `npm run build`
-4. Start the server from the transpiled JavaScript files: `npm start`
-
-Or...
-
-### b. (Recommended) Run a dockerized version of this project
+###  Running the project
 
 Sit on the root directory and run:
 
@@ -52,12 +39,7 @@ Example operations for cats:
 
 ### TODO
 
-- Implement a monitoring tool (New Relic, Sentry).
-- Create a SaaS DB.
-- Connect to the productive DB based on context — dev env should use the docker-compose-defined postgres.
-- Write a report and export to PDF to present the project @ School.
 - Finish coding the test suite to cover all the operations on the two initial endpoints.
-
 
 ### License
 
